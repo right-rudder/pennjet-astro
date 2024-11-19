@@ -1,7 +1,7 @@
 export const footerLinks = [
   {
     name: "Home",
-    link: "/",
+    link: "#top",
   },
   {
     name: "Private Charter",
@@ -14,6 +14,10 @@ export const footerLinks = [
   {
     name: "About Us",
     link: "#about-us",
+  },
+  {
+    name: "Blog",
+    link: "/blog",
   },
   {
     name: "Contact Us",

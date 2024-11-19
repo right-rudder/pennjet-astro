@@ -1,7 +1,7 @@
 export const navbarLinks = [
   {
     name: "Home",
-    link: "/",
+    link: "#top",
   },
   {
     name: "Private Charter",
@@ -9,7 +9,11 @@ export const navbarLinks = [
   },
   {
     name: "Aircraft Management",
-    link: "#aircraft-management",
+    link: "#aircraft-management-services",
+  },
+  {
+    name: "Blog",
+    link: "/blog",
   },
   {
     name: "About Us",
