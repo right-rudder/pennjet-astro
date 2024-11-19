@@ -4,9 +4,9 @@
 
 @layer components {
   .btn-primary {
-    @apply text-center uppercase font-bold py-3 px-6 bg-primary-700 w-fit text-white rounded-sm hover:bg-primary-800 duration-300;
+    @apply text-center uppercase font-bold py-3 px-6 bg-yellow-500 w-fit text-blue-950 rounded-sm hover:bg-yellow-300 duration-300;
   }
- 
+
   .btn-accent {
     @apply text-center hover:scale-105 uppercase font-medium py-3 px-6 bg-accent-600 w-fit text-white rounded-sm hover:bg-accent-800/80 duration-300;
   }
@@ -23,14 +23,15 @@
   }
 
   .tooltip {
-  @apply invisible opacity-0 absolute rounded-sm shadow-md shadow-slate-800/50 bg-gray-50 text-center text-gray-800;
+    @apply invisible opacity-0 absolute rounded-sm shadow-md shadow-slate-800/50 bg-gray-50 text-center text-gray-800;
   }
 
   .has-tooltip:hover .tooltip {
     @apply visible opacity-95 transition-all duration-300 cursor-help;
   }
 
-  .swiper-button-next, .swiper-button-prev {
+  .swiper-button-next,
+  .swiper-button-prev {
     @apply bg-gray-100 opacity-20 hover:opacity-70 duration-300 ease-in-out px-8 py-9;
   }
 }

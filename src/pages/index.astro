@@ -4,8 +4,41 @@ import Card from "../components/Card.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ImageComp from "../components/ImageComp.astro";
 import Hero from "../components/Hero.astro";
+import Features from "../components/Features.astro";
+import Content from "../components/Content.astro";
+
+const landingData = {
+  features: {
+    id: "aircraft-management",
+    title: "Your Trusted Aircraft Management Partner",
+    parag1:
+      "Experience the confidence of unmatched safety, steadfast support, and exceptional service with PennJet. As your trusted aircraft management partner, we place safety at the core of our operations, ensuring meticulous care of your aviation asset.",
+    parag2:
+      "Beyond safety, our comprehensive support encompasses operational excellence and rigorous maintenance oversight. With PennJet, you're not just a client - you're our priority. We're dedicated to exceeding your service expectations. Choose a partner who is committed to your success.",
+    cta: {
+      link: "#contact-us",
+      text: "Contact Us",
+    },
+  },
+  values: {
+    id: "about-us",
+    imagePath: "/src/assets/edgar-chaparro-GAWBDB5DyC4-unsplash.jpg",
+    imageAlt: "PennJet Aircraft Management jet on runway",
+    upperheading: "Our Values & Mission",
+    heading: "Commitment to Excellence",
+    description:
+      "At PennJet, we are more than just an aircraft management company - we are your dedicated aviation partner. Founded by David and Rachael Pitcairn in 2021, our story is deeply rooted in a passion for flight and a commitment to service excellence. ",
+    paragraphs: [
+      "Located at Heritage Field (KPTW), our journey is intertwined with the rich history of this airfield, which has been a part of the aviation community since 1928. We understand the unique responsibilities that aircraft ownership entails, and our team of seasoned aviation professionals is here to support you every step of the way.",
+      "Our core values are safety, service, and support. These principles guide everything we do. Whether it's, recruiting and caring for your dedicated crew, operational support, managing fiscal responsibilities, or overseeing meticulous maintenance, our unwavering attention to detail ensures your aviation asset operates seamlessly.",
+      "We invite you to experience the difference of partnering with a team that values your safety, offers unparalleled service, and provides unwavering support.",
+    ],
+  },
+};
 ---
 
 <BaseLayout title="Home" description="Welcome to the home page">
   <Hero />
+  <Features data={landingData.features} />
+  <Content data={landingData.values} />
 </BaseLayout>
