@@ -1,15 +1,15 @@
 export const mobileNavbarLinks = [
   {
     name: "Home",
-    link: "#top",
+    link: "/#top",
   },
   {
     name: "Private Charter",
-    link: "#charter",
+    link: "/#charter",
   },
   {
     name: "Aircraft Management",
-    link: "#aircraft-management-services",
+    link: "/#aircraft-management-services",
   },
   {
     name: "Blog",
@@ -17,10 +17,10 @@ export const mobileNavbarLinks = [
   },
   {
     name: "About Us",
-    link: "#about-us",
+    link: "/#about-us",
   },
   {
     name: "Contact Us",
-    link: "#contact-us",
+    link: "/#contact-us",
   },
 ];

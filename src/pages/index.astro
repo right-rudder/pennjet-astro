@@ -6,6 +6,9 @@ import ImageComp from "../components/ImageComp.astro";
 import Hero from "../components/Hero.astro";
 import Features from "../components/Features.astro";
 import Content from "../components/Content.astro";
+import ContentBg from "../components/Content-bg.astro";
+import BentoGrid from "../components/BentoGrid.astro";
+import ContactForm from "../components/ContactForm.astro";
 
 const landingData = {
   features: {
@@ -34,6 +37,70 @@ const landingData = {
       "We invite you to experience the difference of partnering with a team that values your safety, offers unparalleled service, and provides unwavering support.",
     ],
   },
+  charter: {
+    id: "charter",
+    imagePath: "/src/assets/penn-jet-header.webp",
+    imageAlt: "PennJet Aircraft Management jet on runway",
+    upperheading: "Private Charter",
+    heading: "Experience the Difference",
+    description:
+      "Our commitment to excellence extends to providing seamless and personalized private charter experiences tailored to your unique needs and preferences. Whether you're flying for business or leisure, our private charter services offer flexibility, convenience, and comfort.",
+    paragraphs: [
+      "Our experienced team handles all the details, from flight planning and logistics to in flight amenities, ensuring that your private charter experience is not only efficient but also luxurious. Whether you're traveling for a corporate meeting, a family vacation, or a special occasion.",
+      "PennJet is your trusted partner in delivering a private charter experience that exceeds your expectations.",
+      "Contact us today to learn more about our private charter",
+    ],
+    cta: {
+      link: "#contact-us",
+      text: "Contact Us",
+    },
+  },
+  services: {
+    id: "aircraft-management-services",
+    upperheading: "Aircraft Management Services",
+    heading: "Your Aircraft, Our Expertise",
+    cards: [
+      {
+        imagePath: "/src/assets/chris-leipelt-6w_dYdazo20-unsplash.jpg",
+        imageAlt: "PennJet Aircraft Management jet on runway",
+        title: "Maintenance Oversight",
+        descriptions: [
+          "At PennJet, we take maintenance oversight seriously to ensure the longevity and reliability of your aviation asset. Our experienced team tracks, schedules, and oversees all required inspections and maintenance events to comply with Part 91 and Part 135 requirements.",
+          "We understand that safety and compliance are paramount in aviation, and we work tirelessly to ensure that your aircraft meets and exceeds regulatory standards.",
+          "Whether it's routine maintenance or coordinating repairs for unscheduled events and AOG situations, our commitment to excellence in maintenance oversight ensures that your aircraft is always in top condition, ready to take flight when you are.",
+        ],
+      },
+      {
+        imagePath: "/src/assets/chris-leipelt-6w_dYdazo20-unsplash.jpg",
+        imageAlt: "PennJet Aircraft Management jet on runway",
+        title: "Operational Support",
+        descriptions: [
+          "We understand that every aspect of aircraft management, from dispatch and flight tracking to scheduling, flight coordination, and logistics, plays a crucial role in ensuring the smooth operation of your aviation asset.",
+          "Our dedicated team of professionals is equipped with the expertise and resources to manage these critical aspects efficiently. With PennJet by your side, you can trust that your aircraft will be meticulously cared for, enabling you to focus on your aviation goals with confidence and peace of mind.",
+        ],
+      },
+      {
+        imagePath: "/src/assets/chris-leipelt-6w_dYdazo20-unsplash.jpg",
+        imageAlt: "PennJet Aircraft Management jet on runway",
+        title: "Fiscal Management",
+        descriptions: [
+          "Our experienced team analyzes aviation expenses, providing transparent reports and strategic insights to meet your financial objectives.",
+          "We maximize cost efficiency while upholding safety and service standards. With PennJet, you can focus on your aviation goals while confidently navigating aircraft ownership finances.",
+        ],
+      },
+      {
+        imagePath: "/src/assets/caleb-woods-R2lCJwGyqPQ-unsplash.jpg",
+        imageAlt: "PennJet Aircraft Management jet on runway",
+        title: "Pilot Services",
+        descriptions: [
+          "Recruiting and employing a skilled and dedicated aviation crew is a critical component of aircraft management.",
+          "Our commitment to excellence extends to the selection and retention of highly qualified professionals who share our dedication to safety and service.",
+          "We handle all aspects of crew management, from recruitment and training to HR administration including implementing a FAA drug and alcohol testing program.",
+          "This comprehensive approach ensures that your aircraft is operated by a team of professionals who are not only skilled but also aligned with our core values of safety and service excellence.",
+        ],
+      },
+    ],
+  },
 };
 ---
 
@@ -41,4 +108,7 @@ const landingData = {
   <Hero />
   <Features data={landingData.features} />
   <Content data={landingData.values} />
+  <ContentBg data={landingData.charter} />
+  <BentoGrid data={landingData.services} />
+  <ContactForm />
 </BaseLayout>

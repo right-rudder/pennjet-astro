@@ -79,7 +79,7 @@ const Navbar = ({ pathname }) => {
       <div
         className={`${
           navBar || openMobile
-            ? "bg-white/70 backdrop-blur-md"
+            ? "bg-white/90 backdrop-blur-md"
             : "bg-transparent"
         } duration-500`}
       >
@@ -90,7 +90,7 @@ const Navbar = ({ pathname }) => {
           >
             <div className="flex w-full items-center justify-between">
               <a
-                href="#top"
+                href="/#top"
                 title="SunCity Aviation Academy"
                 className="hover:brightness-110 flex p-3 h-20 lg:h-24 justify-end align-middle items-center duration-200 ease-in-out w-2/3 lg:w-1/5 lg:bg-accent-700"
               >
@@ -103,7 +103,7 @@ const Navbar = ({ pathname }) => {
                   className={`${navBar || openMobile ? "h-20 lg:h-24" : "h-20 lg:h-24 mt-0"} object-contain duration-500`}
                 />
               </a>
-              <div className="hidden ml-12 lg:flex justify-end lg:w-[63%]">
+              <div className="hidden lg:flex justify-end lg:w-[54%]">
                 <ul className="flex justify-between align-middle w-full items-center text-black">
                   {navbarLinks.map((item, index) => (
                     <li
@@ -116,7 +116,7 @@ const Navbar = ({ pathname }) => {
                         <a
                           href={item.link}
                           target={`${item.link.includes("http") ? "_blank" : "_self"}`}
-                          className="font-light text-base duration-300 hover:underline decoration-yellow-400 decoration-4 underline-offset-[10px] py-12 whitespace-nowrap group-last:font-bold group-last:rounded-md group-last:bg-blue-900 group-last:py-3 group-last:px-5 group-last:hover:bg-blue-500 group-last:hover:no-underline"
+                          className="font-normal text-base duration-300 hover:underline decoration-yellow-400 decoration-4 underline-offset-[10px] py-12 whitespace-nowrap group-last:font-semibold group-last:tracking-wide group-last:rounded-sm group-last:bg-blue-900 group-last:py-3 group-last:px-5 group-last:hover:bg-blue-500 group-last:hover:no-underline"
                         >
                           <span className="relative text-blue-950 group-last:text-blue-50 group-last:hover:text-yellow-100">
                             {item.name}
