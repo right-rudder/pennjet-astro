@@ -14,7 +14,7 @@ const {
   title,
   description,
   keywords,
-  image = "/elite-favicon.png",
+  image,
 } = Astro.props;
 ---
 
@@ -71,7 +71,7 @@ const {
 <script
   type="text/partytown"
   async
-  src="https://www.googletagmanager.com/gtag/js?id=G-VTTTNQQRB1"></script>
+  src="https://www.googletagmanager.com/gtag/js?id=G-7ZWB6T5347"></script>
 <script type="text/partytown">
   window.dataLayer = window.dataLayer || [];
   function gtag() {
@@ -79,7 +79,7 @@ const {
   }
   gtag("js", new Date());
 
-  gtag("config", "G-VTTTNQQRB1");
+  gtag("config", "G-7ZWB6T5347");
 </script>
 
 <!-- NEED TO UPDATE SCHEMA -->
@@ -87,20 +87,20 @@ const {
   {
     "@context": "http://schema.org",
     "@type": "LocalBusiness",
-    "name": "Elite Flight Training & Aircraft Management",
-    "description": "Elite Flight Training & Aircraft Management offers flight training in Kankakee, IL. We offer private pilot training, instrument rating training, commercial pilot training, and more. Contact us today!",
-    "keywords": "elite flight training, elite aircraft management, elite aircraft rentals, elite aircraft maintenance, elite aircraft brokerage, aircraft management,  aircraft rentals,  aircraft maintenance,  aircraft brokerage, flight training, flight school, pilot training, private pilot training, instrument rating training, commercial pilot training, multi-engine training, Kankakee, IL",
-    "image": "/Elite-OG-image.webp",
-    "logo": "/elite-favicon.png",
-    "telephone": "+1-815-939-3575",
-    "email": "eliteproaviation@gmail.com",
+    "name": "PennJet Aircraft Management Services",
+    "description": "PennJet offers comprehensive aircraft ownership and management services, helping you assess whether it aligns with your goals. Our safety, service, and support ensure you fully benefit from your investment. Experience personalized aircraft management with PennJet.",
+    "keywords": "Aircraft management Pottstown PA, Private jet management Pottstown, Aircraft ownership services Pottstown, Private aviation Pottstown PA, Jet management services Heritage Field, Pottstown aircraft management, Aviation services near Pottstown PA, Heritage Field aircraft management, Jet ownership management Pottstown, Pottstown private jet services, Aircraft management PA, Private jet ownership Pottstown, Air charter Pottstown PA, Aircraft maintenance Pottstown, Private jet management near Philadelphia, Pottstown aviation management services, PA private jet services, Pennsylvania aircraft management, Aircraft management company Pennsylvania, Private jet services Philadelphia area, Heritage Field aviation, Aircraft ownership in southeastern PA, Jet fleet management Pennsylvania, Luxury jet services Pottstown, Fly private in Pottstown PA, Pottstown PA jet charter, Best aircraft management services in Pottstown PA, How to manage private jet in Pottstown PA, Full-service private aviation near Philadelphia, Reliable jet management services in southeastern PA, Comprehensive aircraft ownership management Pottstown PA",
+    "image": "/penn-jet-og-image.png",
+    "logo": "/pennjetllc.webp",
+    "telephone": "+1-610-495-7000",
+    "email": "info@pennjet.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "809 E 4000 S Rd",
-      "addressLocality": "Kankakee",
-      "addressRegion": "IL",
+      "streetAddress": "3310 W Ridge Pike",
+      "addressLocality": "Pottstown",
+      "addressRegion": "PA",
       "addressCountry": "US",
-      "postalCode": "60901"
+      "postalCode": "19464"
     },
     "currenciesAccepted": "USD",
     "paymentAccepted": "Cash, Credit Card, Visa, Mastercard, American Express, Discover, Checks",
@@ -108,22 +108,22 @@ const {
       "@type": "GeoCircle",
       "geoMidpoint": {
         "@type": "GeoCoordinates",
-        "latitude": 41.09980346439261,
-        "longitude": -87.85572920714803
+        "latitude": 40.24217243030569,
+        "longitude": -75.55532596753021
       },
       "geoRadius": 9000
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "reviewCount": "14"
-    },
+    // "aggregateRating": {
+    //   "@type": "AggregateRating",
+    //   "ratingValue": "5",
+    //   "reviewCount": "14"
+    // },
     "url": "https://www.eliteproaviation.com/",
     "priceRange": "$",
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 41.09980346439261,
-      "longitude": -87.85572920714803
+      "latitude": 40.24217243030569,
+      "longitude": -75.55532596753021
     },
     "openingHoursSpecification": [
       {
@@ -135,45 +135,36 @@ const {
           "Thursday",
           "Friday",
           "Saturday"
+          "Sunday"
         ],
-        "opens": "09:00",
-        "closes": "17:00"
+        "opens": "07:00",
+        "closes": "20:00"
       },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Sunday",
-        "opens": "12:00",
-        "closes": "17:00"
-      }
     ],
     "makesOffer": {
       "@type": "Offer",
       "itemOffered": {
         "@type": "Service",
-        "serviceType": "Flight Instruction"
+        "serviceType": "Aircraft Management",
       },
       "priceCurrency": "USD",
       "price": "Varies"
-    },
-    "memberOf": {
-      "@type": "Organization",
-      "name": "Cessna Pilot Center"
     },
     "identifier": [
       {
         "@type": "PropertyValue",
         "name": "IATA Code",
-        "value": "IKK"
+        "value": "PTW"
       },
       {
         "@type": "PropertyValue",
         "name": "ICAO Code",
-        "value": "KIKK"
+        "value": "KPTW"
       },
       {
         "@type": "PropertyValue",
         "name": "Airport Code",
-        "value": "IKK"
+        "value": "PTW"
       }
     ],
     "hasMap": "https://maps.app.goo.gl/zCNMFJHjsZ8RvQBFA"
