@@ -1,6 +1,6 @@
 ---
 pubDate: "November 27, 2024"
-author: Marisa Doerstling
+author: David Pitcairn
 title: "Why Personalized Aircraft Management Matters for Owners"
 description: "Discover how PennJet revolutionizes aircraft management with personalized, strategic solutions that transform ownership from a complex challenge into a seamless, value-driven experience. Learn how expert management protects your investment, ensures safety, and adapts to your unique lifestyle."
 heroImage: "/blog/penn-jet-header.webp"

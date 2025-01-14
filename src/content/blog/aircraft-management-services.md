@@ -1,6 +1,6 @@
 ---
 pubDate: "December 27, 2024"
-author: Marisa Doerstling
+author: David Pitcairn
 title: "Aircraft Management Services"
 description: "Managing an aircraft is no small task. Whether you own a single aircraft or an entire fleet, keeping everything running smoothly requires time, expertise, and attention to detail. At PennJet, we specialize in providing top-notch aircraft management services at Heritage Field (KPTW), located in Pottstown, Pennsylvania."
 heroImage: "/blog/aircraft-management.jpg"
