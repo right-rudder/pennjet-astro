@@ -1,6 +1,6 @@
 ---
 pubDate: "January 13, 2025"
-author: Marisa Doerstling
+author: David Pitcairn
 title: "Understanding the Benefits of Professional Aircraft Management"
 description: "Aircraft ownership comes with many rewards, but it also requires significant responsibility. From compliance with federal regulations to maintaining peak performance, managing an aircraft can be complex and time-consuming. That’s where professional aircraft management services come in, providing peace of mind and ensuring your investment is well cared for."
 heroImage: "/blog/professional-management.jpg"
