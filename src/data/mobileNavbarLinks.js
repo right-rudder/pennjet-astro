@@ -1,15 +1,15 @@
 export const mobileNavbarLinks = [
   {
     name: "Home",
-    link: "/#top",
+    link: "https://pennjet.net/#top",
   },
   {
     name: "Private Charter",
-    link: "/#charter",
+    link: "https://pennjet.net/#charter",
   },
   {
     name: "Aircraft Management",
-    link: "/#aircraft-management-services",
+    link: "https://pennjet.net/#aircraft-management-services",
   },
   {
     name: "Blog",
@@ -17,10 +17,10 @@ export const mobileNavbarLinks = [
   },
   {
     name: "About Us",
-    link: "/#about-us",
+    link: "https://pennjet.net/#about-us",
   },
   {
     name: "Contact Us",
-    link: "/#contact-us",
+    link: "https://pennjet.net/#contact-us",
   },
 ];
