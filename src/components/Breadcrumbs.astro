@@ -1,0 +1,63 @@
+---
+interface Breadcrumb {
+  name: string;
+  path: string;
+}
+
+interface Props {
+  breadcrumbs: Breadcrumb[];
+  currentPage: string;
+}
+
+const { breadcrumbs, currentPage } = Astro.props;
+const currentUrl = Astro.url.href;
+const baseUrl = Astro.site?.toString() || 'https://pennjet.net';
+---
+
+<nav class="breadcrumbs py-3" aria-label="Breadcrumb">
+  <ol class="flex flex-wrap items-center text-sm text-gray-500">
+    <li>
+      <a href="/" class="hover:text-blue-600">Home</a>
+      <span class="mx-2">/</span>
+    </li>
+    
+    {breadcrumbs.map((crumb, index) => (
+      <li>
+        <a href={crumb.path} class="hover:text-blue-600">{crumb.name}</a>
+        {index < breadcrumbs.length - 1 && <span class="mx-2">/</span>}
+      </li>
+    ))}
+    
+    <li class="text-gray-800 font-medium">
+      <span class="mx-2">/</span>
+      {currentPage}
+    </li>
+  </ol>
+</nav>
+
+<!-- BreadcrumbList Schema.org markup -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": baseUrl
+    },
+    ...breadcrumbs.map((crumb, index) => ({
+      "@type": "ListItem",
+      "position": index + 2,
+      "name": crumb.name,
+      "item": new URL(crumb.path, baseUrl).toString()
+    })),
+    {
+      "@type": "ListItem",
+      "position": breadcrumbs.length + 2,
+      "name": currentPage,
+      "item": currentUrl
+    }
+  ]
+})}>
+</script>
