@@ -8,9 +8,16 @@ import "@fontsource-variable/montserrat";
 import Navbar from "../components/Navbar";
 import ChatWidget from "../components/ChatWidget.astro";
 import Banner from "../components/Banner.astro";
+import SchemaMarkup from "../components/SchemaMarkup.astro";
 
 const { pathname } = Astro.url;
-const { siteTitle, siteDescription, keywords } = Astro.props;
+const {
+  siteTitle,
+  siteDescription,
+  keywords,
+  schemaType = "default",
+  schemaData = {},
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -22,6 +29,7 @@ const { siteTitle, siteDescription, keywords } = Astro.props;
       keywords={keywords || KEYWORDS}
       image={OG_IMAGE}
     />
+    <SchemaMarkup type={schemaType} data={schemaData} />
   </head>
   <body class="font-sans">
     <Banner />

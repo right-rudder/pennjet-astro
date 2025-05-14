@@ -1,21 +1,19 @@
 ---
 import "../styles/global.css";
+import SocialTags from "./SocialTags.astro";
+import { getCanonicalUrl } from "../utils/seo-helpers";
 
 interface Props {
   title: string;
   description: string;
   keywords: string;
   image?: string;
+  noindex?: boolean;
 }
 
-const canonicalURL = new URL(Astro.url, Astro.site).toString();
+const canonicalURL = getCanonicalUrl(Astro.url, Astro.site);
 
-const {
-  title,
-  description,
-  keywords,
-  image,
-} = Astro.props;
+const { title, description, keywords, image, noindex = false } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -39,7 +37,50 @@ const {
 
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon/favicon.ico" />
+<link
+  rel="apple-touch-icon"
+  sizes="57x57"
+  href="/favicon/apple-touch-icon-57x57.png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="72x72"
+  href="/favicon/apple-touch-icon-72x72.png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="76x76"
+  href="/favicon/apple-touch-icon-76x76.png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="114x114"
+  href="/favicon/apple-touch-icon-114x114.png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="120x120"
+  href="/favicon/apple-touch-icon-120x120.png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="144x144"
+  href="/favicon/apple-touch-icon-144x144.png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="152x152"
+  href="/favicon/apple-touch-icon-152x152.png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="/favicon/apple-touch-icon-180x180.png"
+/>
 <meta name="generator" content={Astro.generator} />
+<meta name="robots" content="index, follow" />
+<meta name="language" content="English" />
+<meta name="revisit-after" content="7 days" />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -49,25 +90,26 @@ const {
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 <meta name="keywords" content={keywords} />
+<meta name="author" content="PennJet LLC" />
+<meta name="robots" content="index, follow" />
+<meta name="language" content="English" />
+<meta name="revisit-after" content="7 days" />
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<!-- Social Media Tags -->
+<SocialTags
+  url={Astro.url.href}
+  title={title}
+  description={description}
+  image={image}
+  type="website"
+  twitterCard="summary_large_image"
+  twitterSite="@PennJetLLC"
+  twitterCreator="@PennJetLLC"
+/>
 
 <link rel="sitemap" href="/sitemap-index.xml" />
 
-<!-- UPDATE GTAG PLEASE -->
-<!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) - Enhanced with performance optimization -->
 <script
   type="text/partytown"
   async
@@ -78,11 +120,22 @@ const {
     dataLayer.push(arguments);
   }
   gtag("js", new Date());
-
-  gtag("config", "G-7ZWB6T5347");
+  gtag("config", "G-7ZWB6T5347", {
+    page_path: window.location.pathname,
+    anonymize_ip: true,
+    cookie_flags: "SameSite=None;Secure",
+    send_page_view: true,
+    content_group: "PennJet Aircraft Management",
+    link_attribution: {
+      cookie_name: "_pjlat",
+      cookie_expires: 63072000,
+      cookie_domain: "pennjet.net",
+    },
+    site_speed_sample_rate: 50,
+  });
 </script>
 
-<!-- NEED TO UPDATE SCHEMA -->
+<!-- Schema Markup for Business -->
 <script type="application/ld+json">
   {
     "@context": "http://schema.org",
@@ -90,8 +143,8 @@ const {
     "name": "PennJet Aircraft Management Services",
     "description": "PennJet offers comprehensive aircraft ownership and management services, helping you assess whether it aligns with your goals. Our safety, service, and support ensure you fully benefit from your investment. Experience personalized aircraft management with PennJet.",
     "keywords": "Aircraft management Pottstown PA, Private jet management Pottstown, Aircraft ownership services Pottstown, Private aviation Pottstown PA, Jet management services Heritage Field, Pottstown aircraft management, Aviation services near Pottstown PA, Heritage Field aircraft management, Jet ownership management Pottstown, Pottstown private jet services, Aircraft management PA, Private jet ownership Pottstown, Air charter Pottstown PA, Aircraft maintenance Pottstown, Private jet management near Philadelphia, Pottstown aviation management services, PA private jet services, Pennsylvania aircraft management, Aircraft management company Pennsylvania, Private jet services Philadelphia area, Heritage Field aviation, Aircraft ownership in southeastern PA, Jet fleet management Pennsylvania, Luxury jet services Pottstown, Fly private in Pottstown PA, Pottstown PA jet charter, Best aircraft management services in Pottstown PA, How to manage private jet in Pottstown PA, Full-service private aviation near Philadelphia, Reliable jet management services in southeastern PA, Comprehensive aircraft ownership management Pottstown PA",
-    "image": "/penn-jet-og-image.png",
-    "logo": "/pennjetllc.webp",
+    "image": "https://pennjet.net/penn-jet-og-image.png",
+    "logo": "https://pennjet.net/pennjetllc.webp",
     "telephone": "+1-610-495-7000",
     "email": "info@pennjet.com",
     "address": {
@@ -113,13 +166,8 @@ const {
       },
       "geoRadius": 9000
     },
-    // "aggregateRating": {
-    //   "@type": "AggregateRating",
-    //   "ratingValue": "5",
-    //   "reviewCount": "14"
-    // },
-    "url": "https://www.eliteproaviation.com/",
-    "priceRange": "$",
+    "url": "https://pennjet.net/",
+    "priceRange": "$$$",
     "geo": {
       "@type": "GeoCoordinates",
       "latitude": 40.24217243030569,
@@ -134,18 +182,18 @@ const {
           "Wednesday",
           "Thursday",
           "Friday",
-          "Saturday"
+          "Saturday",
           "Sunday"
         ],
         "opens": "07:00",
         "closes": "20:00"
-      },
+      }
     ],
     "makesOffer": {
       "@type": "Offer",
       "itemOffered": {
         "@type": "Service",
-        "serviceType": "Aircraft Management",
+        "serviceType": "Aircraft Management"
       },
       "priceCurrency": "USD",
       "price": "Varies"
