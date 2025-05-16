@@ -1,0 +1,130 @@
+---
+interface Props {
+  type: "default" | "blogPost" | "service";
+  data?: {
+    title?: string;
+    description?: string;
+    publishDate?: Date;
+    updateDate?: Date;
+    author?: string;
+    image?: string;
+    serviceType?: string;
+    serviceDescription?: string;
+    serviceName?: string;
+  };
+}
+
+const { type, data } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+const currentUrl = Astro.url.href;
+
+// Default organization schema
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "PennJet Aircraft Management Services",
+  url: "https://pennjet.net/",
+  logo: "https://pennjet.net/pennjetllc.webp",
+  sameAs: [],
+};
+
+// WebSite schema
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "PennJet Aircraft Management Services",
+  url: "https://pennjet.net/",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: "https://pennjet.net/search?q={search_term_string}",
+    "query-input": "required name=search_term_string",
+  },
+};
+
+// Blog post schema
+let blogPostSchema = null;
+if (type === "blogPost" && data) {
+  blogPostSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": currentUrl,
+    },
+    headline: data.title || "",
+    description: data.description || "",
+    image: data.image ? new URL(data.image, Astro.site).toString() : "",
+    author: {
+      "@type": "Person",
+      name: data.author || "PennJet",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "PennJet Aircraft Management Services",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://pennjet.net/pennjetllc.webp",
+      },
+    },
+    datePublished: data.publishDate
+      ? data.publishDate.toISOString()
+      : new Date().toISOString(),
+    dateModified: data.updateDate
+      ? data.updateDate.toISOString()
+      : new Date().toISOString(),
+  };
+}
+
+// Service schema
+let serviceSchema = null;
+if (type === "service" && data) {
+  serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: data.serviceName || "Aircraft Management Service",
+    serviceType: data.serviceType || "Aircraft Management",
+    description:
+      data.serviceDescription ||
+      "Professional aircraft management services for private jet owners.",
+    provider: {
+      "@type": "Organization",
+      name: "PennJet Aircraft Management Services",
+      url: "https://pennjet.net/",
+    },
+    areaServed: {
+      "@type": "GeoCircle",
+      geoMidpoint: {
+        "@type": "GeoCoordinates",
+        latitude: 40.24217243030569,
+        longitude: -75.55532596753021,
+      },
+      geoRadius: 9000,
+    },
+  };
+}
+---
+
+<!-- Core website schema -->
+<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+
+<!-- Organization schema -->
+<script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+
+<!-- Conditional blog post schema -->{
+  type === "blogPost" && data && (
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(blogPostSchema)}
+    />
+  )
+}
+
+<!-- Conditional service schema -->
+{
+  type === "service" && data && (
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(serviceSchema)}
+    />
+  )
+}

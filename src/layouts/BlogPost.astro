@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 import BaseLayout from "./BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
 import { KEYWORDS } from "../consts";
 
 type Props = CollectionEntry<"blog">["data"];
@@ -17,18 +18,50 @@ const {
   tags,
   keywords,
 } = Astro.props;
+
+// Prepare schema data for blog post
+const schemaData = {
+  title,
+  description,
+  publishDate: pubDate,
+  updateDate: updatedDate,
+  author: author || "PennJet",
+  image: heroImage,
+};
+
+// Generate a comma-separated list of keywords including category and tags
+const enhancedKeywords = [
+  category,
+  ...(tags || []),
+  ...(keywords ? [keywords] : []),
+  "aircraft management",
+  "private aviation",
+  "PennJet",
+  "aircraft blog",
+]
+  .filter(Boolean)
+  .join(", ");
 ---
 
 <BaseLayout
   siteTitle={title + " | Blog | PennJet Aircraft Management Services"}
   siteDescription={description + " PennJet Aircraft Management Services Blog."}
-  keywords={category + ", " + tags.join(", ") + keywords ? keywords : KEYWORDS}
+  keywords={enhancedKeywords || KEYWORDS}
+  schemaType="blogPost"
+  schemaData={schemaData}
 >
   <div class="h-24 w-full bg-blue-100"></div>
 
   <section
-    class="flex justify-center pt-2 bg-gradient-to-b from-blue-50 to-blue-100"
+    class="flex flex-col justify-center pt-2 bg-gradient-to-b from-blue-50 to-blue-100"
   >
+    <div class="container mx-auto max-w-4xl px-4">
+      <Breadcrumbs
+        breadcrumbs={[{ name: "Blog", path: "/blog" }]}
+        currentPage={title}
+      />
+    </div>
+
     <article class="mx-auto max-w-4xl">
       <div
         class="mb-12 lg:mb-0 aspect-square lg:aspect-video lg:rounded-t-md shadow-md overflow-hidden"
