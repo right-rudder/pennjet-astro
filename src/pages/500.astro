@@ -1,0 +1,42 @@
+---
+import ImageComp from "../components/ImageComp.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  siteTitle="Internal Server Error | 500 Error | PennJet Aircraft Management"
+  siteDescription="We're experiencing technical difficulties. Please try again later or return to PennJet's homepage for aircraft management services in Pottstown, PA."
+  keywords="500 error, internal server error, PennJet aircraft management, private aviation services"
+>
+  <section class="relative isolate h-screen">
+    <ImageComp
+      imagePath="/src/assets/chris-leipelt-6w_dYdazo20-unsplash.jpg"
+      imageAlt="PennJet aircraft on runway"
+      styles="absolute inset-0 -z-10 size-full object-cover object-top"
+    />
+    <div
+      class="mx-auto w-full h-full flex justify-center align-middle items-center"
+    >
+      <div
+        class="text-center max-w-7xl shadow-xl ring-2 ring-gray-100/30 bg-gradient-to-br from-white/60 via-black/20 to-white/60 backdrop-blur-md w-full lg:w-1/2 py-12 rounded-3xl"
+      >
+        <p class="text-base/8 font-semibold text-white">500</p>
+        <h1
+          class="mt-4 text-balance text-5xl font-semibold tracking-tight text-white sm:text-7xl"
+        >
+          Internal Server Error
+        </h1>
+        <p
+          class="mt-6 text-pretty text-lg font-medium text-white/70 sm:text-xl/8"
+        >
+          Sorry, we couldn’t find the page you’re looking for.
+        </p>
+        <div class="mt-10 flex justify-center">
+          <a href="/" class="text-sm/7 font-semibold text-white"
+            ><span aria-hidden="true">&larr;</span> Back to home</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
