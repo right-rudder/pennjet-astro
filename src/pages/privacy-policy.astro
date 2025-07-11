@@ -1,13 +1,23 @@
 ---
 import privacyPolicies from "../data/privacy-policy";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { generateSEOMetadata } from "../utils/seo-helpers";
 
 const { data } = privacyPolicies;
+
+const seo = generateSEOMetadata("privacy", {
+  title: "Privacy Policy",
+  description:
+    "Privacy Policy for PennJet Aircraft Management Services in Pottstown, PA. Learn how we protect your data and privacy as an aircraft owner or charter client.",
+  keywords:
+    "privacy policy, PennJet, aircraft management, private aviation, Pottstown, PA, data protection, charter services",
+});
 ---
 
 <BaseLayout
-  siteTitle="Privacy Policy | Elite Flight Training & Aircraft Management"
-  siteDescription="Privacy Policy of Elite Flight Training Academy"
+  siteTitle={seo.title}
+  siteDescription={seo.description}
+  keywords={seo.keywords}
 >
   <div class="h-24 w-full bg-gray-100"></div>
 

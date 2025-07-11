@@ -1,12 +1,21 @@
 ---
 import ImageComp from "../components/ImageComp.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { generateSEOMetadata } from "../utils/seo-helpers";
+
+const seo = generateSEOMetadata("error", {
+  title: "Page Not Found | 404 Error",
+  description:
+    "We're sorry, but the page you requested could not be found. Return to PennJet's homepage for aircraft management services in Pottstown, PA.",
+  keywords:
+    "404 error, page not found, PennJet aircraft management, private aviation services",
+});
 ---
 
 <BaseLayout
-  siteTitle="Page Not Found | 404 Error | PennJet Aircraft Management"
-  siteDescription="We're sorry, but the page you requested could not be found. Return to PennJet's homepage for aircraft management services in Pottstown, PA."
-  keywords="404 error, page not found, PennJet aircraft management, private aviation services"
+  siteTitle={seo.title}
+  siteDescription={seo.description}
+  keywords={seo.keywords}
 >
   <section class="relative isolate h-screen">
     <ImageComp
@@ -31,9 +40,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         >
           Sorry, we couldn’t find the page you’re looking for.
         </p>
-        <div class="mt-10 flex justify-center">
+        <div class="mt-10 flex flex-col items-center gap-2">
           <a href="/" class="text-sm/7 font-semibold text-white"
             ><span aria-hidden="true">&larr;</span> Back to home</a
+          >
+          <a href="/blog" class="text-sm/7 font-semibold text-yellow-400"
+            >Visit our Blog</a
+          >
+          <a href="/contact" class="text-sm/7 font-semibold text-blue-300"
+            >Contact PennJet</a
           >
         </div>
       </div>

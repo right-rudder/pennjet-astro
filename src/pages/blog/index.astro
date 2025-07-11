@@ -82,6 +82,7 @@ const posts = (await getCollection("blog")).sort(
               <img
                 src={post.data.heroImage}
                 alt={post.data.title}
+                loading="lazy"
                 class="absolute inset-0 -z-10 h-full w-full object-cover group-hover:scale-110 group-hover:brightness-125 duration-200"
               />
               <div class="absolute inset-0 -z-10 bg-gradient-to-t from-slate-950 via-slate-900/20 group-hover:bg-black/60 duration-200" />

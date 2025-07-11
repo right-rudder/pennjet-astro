@@ -18,7 +18,31 @@ export default defineConfig({
     sitemap({
       changefreq: "weekly",
       lastmod: new Date(),
-      filter: (page) => !page.includes("404"),
+      filter: (page) =>
+        !page.includes("404") &&
+        !page.includes("admin") &&
+        !page.includes("private") &&
+        !page.includes("drafts"),
+      serialize: (page) => {
+        // Add image and alternate language support for SEO
+        const images = [];
+        if (page.data && page.data.heroImage) {
+          images.push({
+            url: page.data.heroImage,
+            title: page.data.title || "PennJet Aircraft Management Services",
+            caption:
+              page.data.description ||
+              "PennJet aircraft management and charter services.",
+          });
+        }
+        return {
+          url: page.url,
+          lastmod: page.lastmod,
+          changefreq: page.changefreq,
+          images,
+          alternates: page.alternates || [],
+        };
+      },
     }),
     react(),
   ],
