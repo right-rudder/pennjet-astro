@@ -17,7 +17,7 @@ export default defineConfig({
     }),
     sitemap({
       changefreq: "weekly",
-      lastmod: new Date().toISOString(),
+      lastmod: new Date(),
       filter: (page) =>
         !page.includes("404") &&
         !page.includes("admin") &&
