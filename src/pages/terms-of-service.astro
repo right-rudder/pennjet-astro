@@ -1,13 +1,22 @@
 ---
 import terms from "../data/terms-of-service";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { generateSEOMetadata } from "../utils/seo-helpers";
 
 const { data } = terms;
+const seo = generateSEOMetadata("terms", {
+  title: "Terms of Service",
+  description:
+    "Terms of Service for PennJet Aircraft Management Services in Pottstown, PA. Review our policies for aircraft owners and charter clients.",
+  keywords:
+    "terms of service, PennJet, aircraft management, private aviation, Pottstown, PA, charter services, service policies",
+});
 ---
 
 <BaseLayout
-  siteTitle="Terms of Service | Elite Flight Training & Aircraft Management"
-  siteDescription="Terms of Service of Elite Flight Training Academy"
+  siteTitle={seo.title}
+  siteDescription={seo.description}
+  keywords={seo.keywords}
 >
   <div class="h-24 w-full bg-gray-100"></div>
 

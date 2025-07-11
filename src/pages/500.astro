@@ -1,17 +1,26 @@
 ---
 import ImageComp from "../components/ImageComp.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { generateSEOMetadata } from "../utils/seo-helpers";
+
+const seo = generateSEOMetadata("error", {
+  title: "Internal Server Error | 500 Error",
+  description:
+    "We're experiencing technical difficulties. Please try again later or return to PennJet's homepage for aircraft management services in Pottstown, PA.",
+  keywords:
+    "500 error, internal server error, PennJet aircraft management, private aviation services",
+});
 ---
 
 <BaseLayout
-  siteTitle="Internal Server Error | 500 Error | PennJet Aircraft Management"
-  siteDescription="We're experiencing technical difficulties. Please try again later or return to PennJet's homepage for aircraft management services in Pottstown, PA."
-  keywords="500 error, internal server error, PennJet aircraft management, private aviation services"
+  siteTitle={seo.title}
+  siteDescription={seo.description}
+  keywords={seo.keywords}
 >
   <section class="relative isolate h-screen">
     <ImageComp
       imagePath="/src/assets/chris-leipelt-6w_dYdazo20-unsplash.jpg"
-      imageAlt=""
+      imageAlt="PennJet aircraft on runway in Pottstown, PA - error page"
       aria-hidden="true"
       styles="absolute inset-0 -z-10 size-full object-cover object-top"
     />
@@ -25,16 +34,26 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <h1
           class="mt-4 text-balance text-5xl font-semibold tracking-tight text-white sm:text-7xl"
         >
-          Internal Server Error
+          500 Internal Server Error
         </h1>
+        <h2 class="mt-2 text-2xl font-semibold text-yellow-400">
+          PennJet Aircraft Management Services
+        </h2>
         <p
           class="mt-6 text-pretty text-lg font-medium text-white/70 sm:text-xl/8"
         >
-          Sorry, something went wrong on our end. Please try again later.
+          Sorry, something went wrong on our end. Please try again later or use
+          the links below to continue browsing.
         </p>
-        <div class="mt-10 flex justify-center">
+        <div class="mt-10 flex flex-col items-center gap-2">
           <a href="/" class="text-sm/7 font-semibold text-white"
             ><span aria-hidden="true">&larr;</span> Back to home</a
+          >
+          <a href="/blog" class="text-sm/7 font-semibold text-yellow-400"
+            >Visit our Blog</a
+          >
+          <a href="/contact" class="text-sm/7 font-semibold text-blue-300"
+            >Contact PennJet</a
           >
         </div>
       </div>
