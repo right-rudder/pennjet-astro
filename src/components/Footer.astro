@@ -6,6 +6,7 @@ import { SITE_DESCRIPTION } from "../consts";
 import logo from "../assets/pennjetllc.webp";
 
 const links = footerLinks;
+const today = new Date();
 ---
 
 <footer class="bg-white" id="footer">
@@ -51,7 +52,7 @@ const links = footerLinks;
       <p>{SITE_DESCRIPTION}</p>
     </div>
     <p class="mt-6 text-center text-sm/6 text-gray-400">
-      &copy; 2024 PennJet LLC. All Rights Reserved.
+      &copy; {today.getFullYear()} PennJet LLC. All Rights Reserved.
     </p>
     <a
       href="https://rightruddermarketing.com/"
